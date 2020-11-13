@@ -1,0 +1,31 @@
+﻿@model HttpModuleCollection
+
+@{
+    ViewBag.Title = "ModuleList";
+}
+
+<h2>ModuleList</h2>
+
+<div>
+    <table width="100%" cellpadding="5" cellspacing="1" border="1">
+        <tr>
+            <td>Name</td>
+            <td>Class FullName</td>
+            <td>Assembly</td>
+        </tr>
+        @{
+            foreach (var item in Model.AllKeys)
+            {
+                string name = item;
+                string classFullName = Model.Get(name).GetType().FullName;
+                string assembly = Model.Get(name).GetType().Assembly.FullName;
+
+                <tr>
+                    <td>@name</td>
+                    <td>@classFullName</td>
+                    <td>@assembly</td>
+                </tr>
+            }
+        }
+    </table>
+</div>
