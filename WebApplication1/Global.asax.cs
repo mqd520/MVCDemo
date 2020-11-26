@@ -21,6 +21,8 @@ namespace WebApplication1
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
+            MvcHandler.DisableMvcResponseHeader = false;
         }
 
         protected void Application_PreSendRequestHeaders(object sender, EventArgs e)
@@ -32,8 +34,6 @@ namespace WebApplication1
                 app.Context.Response.Headers.Remove("X-AspNet-Version");
                 app.Context.Response.Headers.Remove("X-AspNetMvc-Version");
             }
-
-            MyWebCustomErrorHelper.Process(app.Context);
         }
 
         protected void Application_Error(object sender, EventArgs e)
