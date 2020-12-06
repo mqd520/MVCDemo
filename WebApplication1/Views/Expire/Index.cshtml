@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<div style="padding: 10px;">
+    @Html.ActionLink("返回首页", "Index", "Home")
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var date = new Date();
+        var str = date.getMinutes() + ":" + date.getSeconds();
+
+        alert(str);
+    });
+</script>
