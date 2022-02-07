@@ -33,6 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -130,6 +131,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ExpireController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Tools\BoundUrl.cs" />
+    <Compile Include="Controllers\Tools\ContentPathSegment.cs" />
+    <Compile Include="Controllers\Tools\LiteralSubsegment.cs" />
+    <Compile Include="Controllers\Tools\ParameterSubsegment.cs" />
+    <Compile Include="Controllers\Tools\ParsedRoute.cs" />
+    <Compile Include="Controllers\Tools\PathSegment.cs" />
+    <Compile Include="Controllers\Tools\PathSubsegment.cs" />
+    <Compile Include="Controllers\Tools\Route1.cs" />
+    <Compile Include="Controllers\Tools\RouteParser.cs" />
+    <Compile Include="Controllers\Tools\SeparatorPathSegment.cs" />
     <Compile Include="Filters\MyCustomErrorFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

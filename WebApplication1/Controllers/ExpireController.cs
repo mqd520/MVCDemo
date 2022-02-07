@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace WebApplication1.Controllers
 {
@@ -11,6 +12,19 @@ namespace WebApplication1.Controllers
         // GET: Expire
         public ActionResult Index()
         {
+            var dict = new RouteValueDictionary();
+            dict.Add("controller", "Home");
+            dict.Add("action", "Index");
+
+            var route = new WebApplication1.Controllers.Tools.Route("{controller}/{action}/{id}", null)
+            {
+                Constraints = new RouteValueDictionary(),
+                DataTokens = new RouteValueDictionary(),
+                Defaults = dict
+            };
+            var routeData = route.GetRouteData(Request.RequestContext.HttpContext);
+
+
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.Expires = 0;
             Response.ExpiresAbsolute = DateTime.Now.AddDays(-1);
